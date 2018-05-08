@@ -1,0 +1,25 @@
+Serialization_and_Deserialization
+
+Informatii ce curpind detalii de implementare si functionalitate a claselor/metodelor
+etc, se gasesc in comentariile din codul sursa.
+
+Voi explica aici pe scurt modul de gandire si structurare al programului
+
+	Am pornit prin a defini clasa Node, dupa care se creeaza obiectele ce reprezinta
+	nodurile din graful precizat in tema. Fiecare dintre aceste obiecte are una din
+	3 liste de adiacenta (Lista - simplu inlantuita, Vector, Set - Binary Search Tree) in care isi
+	pastreaza "vecinii". Aceste liste de adiacenta extind clasa abstracta AdjacentNodes ce prezinta 2 metode de baza,
+	care sunt utilizate in alte metode pretutindeni in program: delLink si addLink.
+	Operatiile Add, AddM, Del, DelM se bazeaza pe aceste 2 metode.
+
+	Dupa implementarea listelor de adiacenta am trecut la implementarea serializarii.
+	Am folosit campul id al Nodurilor pentru a determina daca un nod a fost deja serializat. Pe
+	baza acetor id-uri am decis ce sa scriu in fisierul de serializare. Am apelat metoda de serializare
+	recursiv pentru a acoperi toti vecinii nodului si vecinii acestora si tot asa.
+
+	Deserializarea functioneaza in felul urmator: Fiecare linie din fisierul serializat este
+	citita o singura data, pe baza informatiilor relevante se apelaza alte metode ce genereaza intr-un final
+	noul graf si adauga informatii relevante in fisierul de cast. Asemeni Serializarii,
+	Deserializarea prezinta recursivitate.
+
+

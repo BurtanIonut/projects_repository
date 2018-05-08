@@ -1,0 +1,25 @@
+Some Problems solved with a Greedy approach
+
+
+Ideea de baza este sortarea intervalelor crescator dupa marginea din stanga. Se seteaza apoi o limita curenta stanga,
+ care initial va fi primul numar, dupa care se cauta intervalul care sa contina limita si sa aibe o extindere cat mai mare in dreapta.
+ Atunci cand se gaseste un interval ce nu mai contine limita curenta se incrementeaza solutia cu 1 si se seteaza o noua limita in stanga,
+ egala cu primul numar mai mare ca marginea din dreapta a intervalului precedent (adica cel mai mare care continea vechea limita).
+ Se verifica de asemenea ca nu cumva marginea din dreapta a intervalului sa includa si ultimul numar din multime. Caz in care se
+ incrementeaza inca o data solutia cu 1 si se iese din program.
+
+Complexitatea data de qsort este O(n*log(n))
+Se itereaza prin multimea de numere maxim o data.
+
+
+Task 3:
+
+Ideea este ca prioritare sunt orientarile spre stanga, dupa care urmeaza cele la dreapta.
+ Se itereaza de la stanga la dreapta prin stropitori si se verifica pe baza prioritatilor modul in care se vor comporta stropitorile.
+ In program sunt 3 cazuri: pentru prima stropitoare, care trebuie sa aiba in vedere marginea din stanga a stadionului;
+ 						   pentru stropitorile pana la penultima inclusiv, fara prima;
+ 						   pentru ultima stropitoare, care trebuie sa aiba in vedere margina din dreapta a stadionului.
+
+
+Complexitatea este O(n)
+Se itereaza prin toata multimea de stropitori o data.

@@ -1,0 +1,20 @@
+Multi-threaded_Database_Engine_Synchronization
+
+NOTE: IN AFARA DE Database.java si MyDatabase.java, RESTUL SURSELOR AU VENIT CU SCHELETUL DE COD!
+
+Rularea seriala
+
+		- tabelele sunt ArrayList de ArrayList (dupa linii)
+		- tin tabelele intr-un hashmap
+
+		Insert - inserez o noua linie tabelei respective din hash
+
+		Update - din "condition" aflu indexul coloanei pe care se cere verificarea conditiei(metoda checkTruth), inlocuiesc, unde este cazul, linia care contine elementul care verifica specificata conditie, cu linia data ca argument. In cazul in care conditia nu este specificata(vida), se schimba toate liniile din tabel
+
+		Select - verifica daca am conditia vida, daca da, fac succesiv operatiile (metoda computeOperation) pe tabel si intorc rezultatul. Daca exista conditia, atunci formez un nou tabel alcatuit doar din liniile care o respecta si fac operatiile pe el.
+
+Rulare paralela
+
+		 Consistenta operatiilor este asigurata de implementarea paradigmei Cititor-Scriitor. Writerii (insert/update) pot actiona doar unul odata pe un tabel, lucru asigurat de un semafor (cate un semafor pt fiecare tabel, semafoarele salvate tot intr-un hash "semHash"). Acelasi semafor asigura si ca scriitorii nu pot actiona in acelasi timp cu cititorii. Am folosit o variabila care numara cati cititori lucreaza la un momentdat pe o tabela (readHash). Cand variabila = 1 se blocheaza scriitorii (prin semafor), cand este 0 se deblocheaza, in rest variabila se incrementeaza cu 1 pentru fiecare cititor nou si se decrementeaza cu 1 pentru fiecare cititor care a terminat.
+
+		 Consitenta Tranzactiei am asigurat-o tot cu semafor (tranHash) (NOT USE THIS REALLY WORKS!)

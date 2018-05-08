@@ -1,0 +1,15 @@
+
+Implementare ATM cu socketi TCP.
+
+Abordarea este destul de la obiect:
+
+1. Serverul citeste si inregistreaza datele despre utilizatori.
+2. Dupa ce se initializeaza socket-rile, se fac bind-uri etc..., serverul asteapta comenzi de la clienti.
+3. Serverul gestioneaza comenzile primite si modifica, daca este cazul, datele utilizatorilor. Se trimit raspunsurile clientilor.
+4. Clientii evalueaza raspunsurile primite de la server si scriu in fisierele de 'log' aferente.
+5. Conexiunea se incheie cand serverul primeste de la stdin comanda 'quit' care trimite mai intai mesaje de inchidere clientilor.
+
+Tema este implementata pana la partea de blocare, lipseste socket-ul de UDP si serviciul de unlock.
+
+Comentariile din cod ofera o explicatie mai detaliata a functionalitatilor.
+

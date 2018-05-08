@@ -1,0 +1,18 @@
+Portable Hashtable
+
+
+Am pornit prin a creea o structura cu care sa formez bucket-urile.
+	Un bucket este o lista simplu inlantuita de structuri 'Cell', care au un pointer la cuvant si unul la urmatoarea celula.
+
+Hash-Table-ul este tot o structura: 'My_hash'.
+	Are un pointer la un vector de bucket-uri si un camp ce retine dimensiunea vectorului.
+
+In mare, ideea este ca initializez un hash in 'main' cu dimensiunea specificata, dupa care iterez prin fisierele de intrare si
+	apelez pentru fiecare din ele functia 'execute' care este responsabila cu decodificarea si executarea comenzilor,
+	dar si tratarea eventualelor erori. Daca nu sunt specificate fisiere de intrare, 'execute' se va face de la 'stdin'.
+
+Erorile posibile sunt adresate prin functia 'eroare' care scrie la stderr natura erorii
+	si/sau detalii aditionale despre eroare.
+
+Portabilitatea este asigurata prin cele 2 Makefile-uri, fiecare dintre ele sunt responsabile de comenzile de compilare
+	si obtinerea executabilului cat si link-area acestuia cu biblioteca dinamica(specifica sistemului) in care se afla functia de generare a hash-urilor pentru cuvintele stocate in hash-table.

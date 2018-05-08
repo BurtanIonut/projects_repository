@@ -1,0 +1,16 @@
+Mimi_Kermit
+
+Principiul de functionare al senderului: trimite mesaj si asteapta ACK, incrementeaza secventa cu 1 pentru fiecare
+  ACK primit. In cazul in care se primste NACK se retrimite mesajul fara a-i schimba secventa. In caz de timeout (x3)
+  se iese din program (se ajunge la return 0 in main).
+
+Principiul de functionare al receiverului: asteapta mesaj valid din punct de vedere al corectirudinii byte-tilor si a
+  secventelor. Dupa ce se primeste un mesaj valid se creeaza un mesaj de tip ACK, ce urmeaza a fi trimis inapoi catre sender,
+  cu aceeasi secventa ca a mesajului primit. Se incrementeaza apoi secventa din program. Daca mesajul nu este valid se trimite
+  NACK cu aceeasi secventa pana la primirea unui mesaj valid.
+
+Principiul de secventiere: Se transmite catre receiver mesajul de secventa i. Daca se primeste de receiver mesajul valid se creeaza
+  ACK de secventa i si secventa din program devine i = i + 1, se trimite ACK-ul. Daca nu este valid mesajul se retrimite NACK de
+  secventa i pana se primeste mesajul valid. Daca senderul primeste NACK, sau mesaj de secventa diferita de cea contorizata, retransmite
+  ultimul mesaj.
+

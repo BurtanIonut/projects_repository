@@ -1,0 +1,21 @@
+Code Parsing and Evaluation
+
+Pasii urmati pentru evaluarea expresiei:
+
+	1. Procesez expresia din fisier (Metoda statica process din clasa Statics.java).
+
+	2. Construiesc arborele pe baza expresiei procesate la pasul anterior (crateArb in Statics.java).
+	   Folosind caracterul spatiu pe post de delimitator aleg ce fel de nod trebuie
+	    construit cu fiecare substring si cum se realizeaza relatiile parinte-copil.
+	   Caracterul ']' determina o urcare cu un nivel in ierarhia de noduri din arbore.
+
+	3. Se aplica metoda 'accept' a unui obiect Visitor pe arbore, adica pe nodul radacina.
+	   Se aplica recursiv metoda pe fiecare fiu al arborelui, se fac operatii aditionale,
+	    dupa care nodul parinte intoarece un rezultat propagat nivelului superior.
+	   In final, rezultatul intors de nodul radacina este cel intors de 'accept'.
+
+	4. Rezultatul evaluarii este scris in fisier.
+
+Am abordat strategia de 'interpretor', in care verific doar nodurile (evaluez doar expresiile) care
+ contrubuie la rezultatul final al evaluarii.
+

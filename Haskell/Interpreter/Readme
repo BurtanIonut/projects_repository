@@ -1,0 +1,29 @@
+Interpretor
+
+    In mare, ideea este:
+      Se efectueaza programe pana la gasirea unei valori de iesire (fie ea eroare sau valoare de return).
+      Pana la finalitatea programului, subprogramele efectuate paseaza 'dictionarul' folosit catre subprogramele/expresiile inca
+      neevaluate, astfel acestea vor fi afectate de posibile modificari ce se au loc pe parcurs.
+
+    Am creat TDA-ul Dict pentru a retine valorile variabilelor.
+     Apelurile functiior primesc de obicei un 'dictionar' pentru posibilile referinte
+      la variabile si valorile lor.
+
+    Propagarea 'dictionarului' actualizat se face cu functia "newDict".
+
+    Functia "prog" este cea apelata de "evalAdt", primeste la acest apel un "None"
+     ce simbolizeaza un 'dictionar' fara elemente.
+     Functia intoarce pe baza 'dictionarului' primit (sub forma de "Either"):
+      in caz de "Left _", adica programul deja s-a evaluat fie la o eroare,
+                                                           fie la o valoare valida: "Left err" sau "Right val";
+      in caz de "Right _", adica programul este inca in curs de evaluare si s-a primit un 'dictionar' actualizat,
+       fie un nou apel "prog" daca mai exista "Seq" de efectuat,
+       fie un apel de "eval" daca s-a ajuns la un "Return"
+       fie intoarce "Missing return" daca programul s-a efectuat,
+        dar nu exista valoare de return sau erori propagate.
+
+     Exista multe instante de "case" datorita numerosilor constructori pentru "Prog" si "Expr", dar si datorita
+      necesitatii de a propaga pe 'return-urile' apelurilor fie terminarea prematura a programului in caz
+      de eroare, fie o valoare de return, fie un nou 'dictionar' pentru apelurile urmatoare.
+      TDA-ul "Either" asigura aceasta functionalitate.
+

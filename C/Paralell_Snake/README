@@ -1,0 +1,26 @@
+Parallel_Snake
+
+NOTE: main.c si main.h SUNT DIN SCHELETUL DE COD, EU AM IMPLEMENTAT DOAR parallel_snake.c, AM ADAUGAT IN
+main.h HEADER-ELE PENTRU FUNCTIILE IMPLEMENTATE IN parallel_snake.c!
+
+Idei de implementare:
+	1. Tin fiecare sarpe intr-o lista dublu inlantuita, am ales lista dublu inlantuita pentru facilitarea "miscarii" sarpelui astfel:
+				celula ce serveste drept coada devine noul cap al sarpelui, coada noua va fi celula precedenta cozii. Dupa alte detalii tehnice (updatare pointeri, modificare coordonate pentru celulele ce reprezinta capul/coada) rezulta un sarpe care s-a miscat o pozitie.
+
+	2. Construiesc fiecare sarpe plecand de la pozitia capului si directia de miscare. Prin testarea succesiva a pozitiilor de langa celula curenta
+				adaug segmente la sarpe unde gasesc in matrice valori egale cu encodingul sarpelui.
+
+	3. Fiecare sarpe face o mutare (care se salveaza in interiorul structurii), dupa care se verifica eventualele coliziuni, avand in vedere matricea cu configuratiile serpilor de la pasul anterior.
+
+	4. Pentru detectarea coliziunii am urmat urmatorii pasi:
+				a. In matrice cozile serpilor dispar (valoarea 0), deoarece nu se mai pot obtine coliziuni pe acea pozitie, avand in vedere ca sarpele se misca.
+				b. Se verifica daca pentru fiecare sarpe daca in matricea veche, pozitia curenta a capului este la o pozitie care are asociata o valoare diferita de 0, deci daca se produce coliziune.
+				c1. Daca nu se produce coliziune, sarpele curent va fi updatat in matrice si se trece la urmatorul sarpe.
+				c2. Daca se produce coliziune, serpii care precedent au fost mutati in matrice vor reveni la pozitiile initiale, se vor "reatasa" cozile
+
+
+
+
+
+
+

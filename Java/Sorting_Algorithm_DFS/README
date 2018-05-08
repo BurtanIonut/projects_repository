@@ -1,0 +1,21 @@
+Implementare Algoritm de sortare topologica cu DFS.
+
+
+  Cat timp exista cuvinte de citit din fisier, retin atat cuvantul precedent
+  cat si cuvantul curent. Prin verificari succesive a literelor de pe aceeasi pozitie
+  ajung eventual la 2 litere care difera. In cazul in care gasesc 2 litere difera introduc
+  (daca nu sunt deja introduse) nodurile asociate literelor in graf si creez o muchie orientata
+  de la primul nod (cu prima litera) la al 2-lea nod. Simultan, introdcu prima litera,
+  adica cea din cuvantul precedent intr-un String pe care il folosesc pe post de stiva.
+  Pentru fiecare litera din stiva, parcurg in adancime nodul asociat literei si intorc ordinea
+  astfel formata a literelor. Dupa fiecare apel de ordonare introduc rezultatele la ordonarea finala.
+  La final, introduc corespunzator in alfabelt literele sortate topologic si scriu rezultatul in fisierul
+  de iesire.
+
+  Exista 2 cazuri in care programul intoarce "Imposibil": 1. Cuvantul precedent este mai lung decat cel curent
+  							     si primele litere pana la lungimea cuvantului curent
+						             alcatuiesc cuvantul curent.
+                                                          2. In graf se depisteaza un ciclu.
+
+  Complexitatea algoritmului (exceptand resursele consumate de citire/initializare/inserare)
+    este O(nr.noduri + nr.muchii) deoarece fiecare nod este vizitat o singura data, la fel si fiecare muchie.
